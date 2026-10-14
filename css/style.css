@@ -54,6 +54,8 @@
 html {
   scroll-padding-top: env(safe-area-inset-top, 0px);
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
 }
 *,
 *::before,
@@ -61,6 +63,8 @@ html {
   box-sizing: border-box;
 }
 body {
+  overflow-x: clip;
+  max-width: 100%;
   margin: 0;
   background: var(--bg);
   color: var(--ink);
@@ -174,6 +178,7 @@ nav a:hover {
   color: var(--ink);
 }
 .hero {
+  min-width: 0;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2.5rem;
@@ -503,14 +508,12 @@ h2 {
 }
 .card .info {
   padding: 1.2rem 1.3rem 1.4rem;
-
-
 }
 .tage-2 {
   display: flex;
   gap: 0.5rem;
   margin-top: 0.5rem;
-      justify-content: space-between;
+  justify-content: space-between;
   justify-items: space-between;
 }
 .card h3 {
@@ -751,21 +754,37 @@ footer {
   transform: none;
 }
 @media (max-width: 820px) {
+.row{
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
   .hero {
-    grid-template-columns: 1fr;
-  }
+    padding: 2rem 0 3rem;
+    display: flex;
+    flex-direction: column;
+  } /* مسافات أقل فوق وتحت */
   .stage {
-    margin: 0 0.8rem;
-  }
-  nav a {
-    display: none;
-  }
-  .stats {
-    gap: 0.6rem;
-  }
-  .stat {
-    padding: 1rem;
-  }
+    margin: 0;
+  } /* شلت الهامش الجانبي */
+  .c1 {
+    right: 2%;
+  } /* شارة React جوه الشاشة */
+  .c2 {
+    left: -4px;
+  } /* شارة Next.js كانت على -22px برا الشاشة */
+  pre {
+    font-size: 0.78rem;
+  } /* خط الكود أصغر شوية */
+  .stat span {
+    font-size: 0.9rem;
+  } /* نص الإحصائيات أصغر */
+  .dock {
+    max-width: calc(100vw - 1rem);
+  } /* شريط الألوان ميطلعش برا الشاشة */
 }
 @media (prefers-reduced-motion: reduce) {
   *,
